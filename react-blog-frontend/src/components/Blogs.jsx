@@ -8,7 +8,7 @@ const Blogs = () => {
     <div className="d-flex justify-content-between mt-4 mb-5">
       <h4>Blogs</h4>
       {/* btn button-dark */}
-      <a href="#" className="btn btn-dark">
+      <a href="/create" className="btn btn-dark">
         Create
       </a>
     </div>
