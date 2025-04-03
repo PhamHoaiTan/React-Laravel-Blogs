@@ -17,6 +17,19 @@ function Create() {
     formState: { errors },
   } = useForm();
 
+
+  const handleFileChange = async (e) => {
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append("image", file);
+    
+    const res = await fetch("http://localhost:8000/api/save-temp-image", {
+      method: 'POST',
+      body: formData
+    })
+    
+    const result = res.json();
+  }
   const onSubmit = async (data) => {
     const newData = { ...data, description: html };
     const res = await fetch("http://localhost:8000/api/blogs", {
@@ -80,7 +93,7 @@ function Create() {
                 Image
               </label>
               <br />
-              <input type="file" className="" />
+              <input type="file" className="" onChange={handleFileChange}/>
             </div>
             <div className="mb-3">
               <label htmlFor="" className="form-label">
