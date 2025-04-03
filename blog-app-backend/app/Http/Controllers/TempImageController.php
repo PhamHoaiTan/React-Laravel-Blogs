@@ -18,9 +18,9 @@ class TempImageController extends Controller
     
             if ($validator->fails()) {
                 return response()->json([
-                    'status' => true,
+                    'status' => false,
                     'message' => 'update image fail',
-                    'error' => $validator->errors()
+                    'errors' => $validator->errors()
                 ]);
             }
     

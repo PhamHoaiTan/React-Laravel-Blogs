@@ -28,7 +28,13 @@ function Create() {
       body: formData
     })
     
-    const result = res.json();
+    const result = await res.json();  
+    console.log(result);
+    if(result.status == false){
+      console.log("true");
+      toast.warn(`${result.errors.image}`);
+      e.target.value = null;
+    }
   }
   const onSubmit = async (data) => {
     const newData = { ...data, description: html };
